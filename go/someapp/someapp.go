@@ -47,6 +47,16 @@ func newapp(username string) someapp {
 	return someapp{username, 1, true}
 }
 
+func (app someapp) crack() {
+	app.use = 0
+	fmt.Printf("%sの使用回数を書き変えました¥n¥n", app.username)
+}
+
+func (app someapp) extra() {
+	app.use = 1
+	fmt.Println("1回分おまけします")
+}
+
 // メイン関数
 func main() {
 	fmt.Println("[ringoさんがアプリを使用開始]")
@@ -64,9 +74,18 @@ func main() {
 	fmt.Println("[mikanさんが再びアプリを使用]")
 	mapp.open()
 
+	rapp.crack()
 	fmt.Println("[ringoさんが再びアプリを使用]")
 	rapp.open()
 
 	fmt.Println("[mikanさんが再びアプリを使用]")
 	mapp.open()
+
+	rapp.extra()
+	fmt.Println("[ringoさんがアプリを開いてみる]")
+	rapp.open()
+	rapp.close()
+
+	fmt.Println("[ringoさんがもう一度アプリを開いてみる]")
+	rapp.open()
 }
