@@ -8,17 +8,19 @@ type animaldata interface {
 	describe() string
 }
 
-// 構造体
+// 構造体(共通)
 type spec struct {
 	name  string
 	group string
 }
 
+// 犬独自の構造体
 type dog struct {
 	sp     spec
 	weight int
 }
 
+// 猫独自の構造体
 type cat struct {
 	sp    spec
 	btype string
